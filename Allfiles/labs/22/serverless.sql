@@ -1,21 +1,19 @@
-CREATE DATABASE lakedb;
+﻿SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ CREATE TABLE [dbo].[DimProduct](
+    [ProductKey] [int] NOT NULL,
+    [ProductName] [nvarchar](50) NULL,
+    [Category][nvarchar](50) NULL,
+    [ListPrice] [money] NULL)
+WITH
+(
+	DISTRIBUTION = HASH(ProductKey),
+	CLUSTERED COLUMNSTORE INDEX
+);
 GO
 
-USE lakedb;
-GO
-
-CREATE CREDENTIAL [https://datalakexxxxxxx.dfs.core.windows.net/files/products/products.csv]
-WITH IDENTITY='Managed Identity';
-GO
-
-CREATE VIEW products_csv
-AS
-SELECT *
-FROM
-    OPENROWSET(
-        BULK 'https://datalakexxxxxxx.dfs.core.windows.net/files/products/products.csv',
-        FORMAT = 'CSV',
-        HEADER_ROW = TRUE,
-        PARSER_VERSION = '2.0'
-    ) AS [result];
+INSERT DimProduct
+VALUES('786','Mountain-300 Black','Mountain Bikes',2294.9900);
 GO
