@@ -235,6 +235,11 @@
             "requestedServiceObjectiveName": "Standard",
             "sampleName": "AdventureWorksLT"
           },
+          "serviceTierAdvisors":
+            {
+                "maxSizeInGB":"150",
+                "maxDtu":"101"
+            },
   "sku": {
                "name": "S0"
           },
