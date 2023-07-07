@@ -235,13 +235,8 @@
             "requestedServiceObjectiveName": "Standard",
             "sampleName": "AdventureWorksLT"
           },
-          "serviceTierAdvisors":
-            {
-                "maxSizeInGB":"150",
-                "maxDtu":"101"
-            },
   "sku": {
-               "name": "S0"
+               "name": "S3",
           },
           "dependsOn": [
             "[variables('sqlserverName')]"
