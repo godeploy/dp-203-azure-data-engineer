@@ -235,6 +235,9 @@
             "requestedServiceObjectiveName": "Standard",
             "sampleName": "AdventureWorksLT"
           },
+  "sku": {
+               "name": "S0"
+          },
           "dependsOn": [
             "[variables('sqlserverName')]"
           ]
